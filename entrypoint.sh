@@ -11,7 +11,7 @@ mkdir -p /opt/coin/p2p
 if test $# -eq 0; then
   # start node
   track=${track_account:-1.2.12345}
-  /opt/programs/witness_node/witness_node --data-dir /opt/coin --track-account "\"$track\"" &
+  /opt/programs/witness_node/witness_node --fast-replay --data-dir /opt/coin --track-account "\"$track\"" &
   echo "Logging to logs/default/default.log ..."
   # wait until ws started
   while ! nc -z -w 1 127.0.0.1 8090; do
